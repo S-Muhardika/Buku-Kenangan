@@ -3,7 +3,7 @@
 
 > *68 nama, 4 cerita. Tidak semuanya sampai pada halaman yang sama.*
 
-🌐 **[pernahdisini.vercel.app](https://pernahdisini.vercel.app)**
+🌐 **[pernahdisini.vercel.app](https://bukukenangan.vercel.app/)**
 
 ---
 
