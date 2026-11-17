@@ -1,0 +1,28 @@
+# General OS files
+.DS_Store
+Thumbs.db
+
+# Editor / IDE files
+*.swp
+*~
+.idea/
+.vscode/
+
+# Dependency directories (if any)
+node_modules/
+
+# Environment files
+.env
+
+# Log files
+*.log
+
+# Build artifacts (if using a build step)
+/dist/
+/build/
+
+# Temporary files
+tmp/
+
+# Sensitive data (add patterns as needed)
+# secret_key.txt

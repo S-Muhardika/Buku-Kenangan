@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download Foto — Pernah di Sini (tool internal)</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<style>
+  body {
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    max-width: 640px;
+    margin: 40px auto;
+    padding: 0 20px 60px;
+    color: #1a1a1a;
+    line-height: 1.6;
+  }
+  h1 { font-size: 20px; }
+  .note {
+    background: #fff8e1; border: 1px solid #e0c46c;
+    padding: 12px 16px; border-radius: 8px; font-size: 13px; margin: 16px 0;
+  }
+  button {
+    background: #1a1a1a; color: #fff; border: none; padding: 12px 24px;
+    border-radius: 8px; font-size: 14px; cursor: pointer;
+  }
+  button:disabled { opacity: 0.5; cursor: default; }
+  #bar-wrap {
+    background: #eee; border-radius: 6px; height: 10px; margin: 16px 0 6px; overflow: hidden;
+  }
+  #bar { background: #1a1a1a; height: 100%; width: 0%; transition: width 0.2s; }
+  #progress-text { font-size: 12.5px; color: #555; }
+  #log {
+    margin-top: 16px; font-family: ui-monospace, monospace; font-size: 12px;
+    white-space: pre-wrap; background: #f5f5f5; padding: 14px; border-radius: 8px;
+    max-height: 280px; overflow-y: auto;
+  }
+  .ok  { color: #1a7a3c; }
+  .err { color: #b3261e; }
+</style>
+</head>
+<body>
+
+  <h1>🖼️ Download Foto — Pernah di Sini</h1>
+  <p>Tool internal sekali-pakai. Download semua foto yang saat ini masih menunjuk ke Supabase Storage, bundel jadi satu ZIP siap taruh di <code>assets/images/gallery/</code>, plus <code>gallery.json</code> baru yang path-nya sudah lokal — biar foto lama ikut lepas dari Supabase (termasuk risiko project di-pause), bukan cuma data teksnya.</p>
+
+  <div class="note">
+    ⚠️ Bukan halaman publik — jangan ditautkan dari navbar. Jalankan dari folder situs ini juga (butuh <code>data/gallery.json</code> di sebelahnya). Prosesnya bisa beberapa menit tergantung jumlah & ukuran foto serta koneksi kamu.
+  </div>
+
+  <p><button id="btn-start">Mulai Download & Bundling</button></p>
+
+  <div id="bar-wrap" style="display:none"><div id="bar"></div></div>
+  <div id="progress-text"></div>
+  <div id="log"></div>
+
+<script>
+const logEl = document.getElementById('log');
+const barWrap = document.getElementById('bar-wrap');
+const bar = document.getElementById('bar');
+const progressText = document.getElementById('progress-text');
+const btn = document.getElementById('btn-start');
+
+function log(msg, cls) {
+  const line = document.createElement('div');
+  if (cls) line.className = cls;
+  line.textContent = msg;
+  logEl.appendChild(line);
+  logEl.scrollTop = logEl.scrollHeight;
+}
+
+function localFilename(prefix, url) {
+  const base = url.split('/').pop().split('?')[0];
+  return `${prefix}-${base}`;
+}
+
+async function fetchAsBlob(url) {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return await res.blob();
+}
+
+async function run() {
+  btn.disabled = true;
+  logEl.innerHTML = '';
+  barWrap.style.display = 'block';
+
+  let galleryData;
+  try {
+    const res = await fetch('data/gallery.json');
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    galleryData = await res.json();
+  } catch (e) {
+    log('✗ Gagal baca data/gallery.json: ' + e.message, 'err');
+    log('Pastikan file ini dijalankan dari folder situs (sejajar dengan folder data/).', 'err');
+    btn.disabled = false;
+    return;
+  }
+
+  const admin = galleryData.admin || [];
+  const user  = galleryData.user  || [];
+  const total = admin.length + user.length;
+  log(`Ketemu ${admin.length} foto admin + ${user.length} foto user = ${total} total.`);
+
+  const zip = new JSZip();
+  const imgFolder = zip.folder('gallery-photos'); // isinya nanti dipindah ke assets/images/gallery/
+  let done = 0, failed = 0;
+
+  async function processList(list, prefix, urlKey) {
+    for (const item of list) {
+      const url = item[urlKey];
+      const filename = localFilename(prefix, url);
+      try {
+        const blob = await fetchAsBlob(url);
+        imgFolder.file(filename, blob);
+        item[urlKey] = `../assets/images/gallery/${filename}`; // path baru untuk gallery.json
+        log(`✓ ${filename}`, 'ok');
+      } catch (e) {
+        failed++;
+        log(`✗ Gagal: ${filename} — ${e.message}`, 'err');
+        // Biarkan URL lama tetap ada supaya foto ini setidaknya masih coba load dari Supabase
+      }
+      done++;
+      const pct = Math.round((done / total) * 100);
+      bar.style.width = pct + '%';
+      progressText.textContent = `${done}/${total} (${pct}%)`;
+    }
+  }
+
+  await processList(admin, 'admin', 'photo_url');
+  await processList(user,  'user',  'image_url');
+
+  // gallery.json baru dengan path lokal
+  zip.file('gallery.json', JSON.stringify({ admin, user }, null, 2));
+
+  log('\nMembungkus ZIP...');
+  const blob = await zip.generateAsync({ type: 'blob' }, (meta) => {
+    progressText.textContent = `Membungkus... ${Math.round(meta.percent)}%`;
+  });
+
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'gallery-photos-bundle.zip';
+  document.body.appendChild(a); a.click(); a.remove();
+
+  log(`\nSelesai! ${done - failed}/${total} foto berhasil, ${failed} gagal.`, failed ? 'err' : 'ok');
+  log('Isi gallery-photos-bundle.zip:', 'ok');
+  log('  - folder gallery-photos/  → pindahkan ISINYA ke assets/images/gallery/', 'ok');
+  log('  - gallery.json            → timpa data/gallery.json yang lama', 'ok');
+  if (failed) {
+    log(`\n${failed} foto gagal didownload (mungkin CORS atau file sudah tidak ada di Storage) — URL lamanya dibiarkan apa adanya di gallery.json, foto itu akan tetap mencoba load dari Supabase seperti sebelumnya.`, 'err');
+  }
+
+  btn.disabled = false;
+}
+
+btn.addEventListener('click', run);
+</script>
+</body>
+</html>

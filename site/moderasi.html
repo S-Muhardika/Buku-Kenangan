@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moderasi — Pernah di Sini (tool internal)</title>
+<style>
+  body {
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    max-width: 680px;
+    margin: 32px auto;
+    padding: 0 20px 60px;
+    color: #1a1a1a;
+    line-height: 1.6;
+  }
+  h1 { font-size: 20px; margin-bottom: 4px; }
+  h2 { font-size: 15px; margin: 28px 0 4px; }
+  .note {
+    background: #fff8e1; border: 1px solid #e0c46c;
+    padding: 12px 16px; border-radius: 8px; font-size: 13px; margin: 16px 0;
+  }
+  .tabs { display: flex; gap: 8px; margin: 20px 0 16px; border-bottom: 1px solid #ddd; }
+  .tab { padding: 10px 16px; cursor: pointer; font-size: 13px; border-bottom: 2px solid transparent; }
+  .tab.active { border-bottom-color: #1a1a1a; font-weight: 600; }
+  .panel { display: none; }
+  .panel.active { display: block; }
+  label { display: block; font-size: 12px; color: #555; margin: 12px 0 4px; }
+  input[type=text], input[type=number], textarea, select {
+    width: 100%; padding: 9px 11px; border: 1px solid #ccc; border-radius: 6px;
+    font-size: 13.5px; font-family: inherit; box-sizing: border-box;
+  }
+  textarea { min-height: 70px; resize: vertical; }
+  input[type=file] { margin-top: 4px; }
+  button {
+    background: #1a1a1a; color: #fff; border: none; padding: 10px 18px;
+    border-radius: 8px; font-size: 13.5px; cursor: pointer; margin-top: 14px; margin-right: 8px;
+  }
+  button.secondary { background: #eee; color: #1a1a1a; }
+  button:disabled { opacity: 0.4; cursor: default; }
+  .step {
+    border: 1px solid #e2e2e2; border-radius: 10px; padding: 16px; margin-bottom: 16px;
+  }
+  .step-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 20px; height: 20px; border-radius: 50%; background: #1a1a1a; color: #fff;
+    font-size: 11px; margin-right: 6px;
+  }
+  ul#entry-list, ul#gallery-entry-list { list-style: none; padding: 0; margin: 12px 0; }
+  ul#entry-list li, ul#gallery-entry-list li {
+    display: flex; justify-content: space-between; align-items: start;
+    padding: 8px 10px; background: #f7f7f7; border-radius: 6px; margin-bottom: 6px; font-size: 12.5px;
+  }
+  ul#entry-list li span, ul#gallery-entry-list li span { flex: 1; padding-right: 8px; }
+  ul#entry-list li button, ul#gallery-entry-list li button {
+    margin: 0; padding: 4px 10px; font-size: 11px; background: #d9534f;
+  }
+  .count { font-size: 12px; color: #666; }
+</style>
+</head>
+<body>
+
+  <h1>🗂️ Moderasi — Pernah di Sini</h1>
+  <p>Tool internal buat nempelin pesan/foto yang masuk lewat WhatsApp/email ke <code>data/*.json</code> — tanpa ngetik JSON manual.</p>
+  <div class="note">⚠️ Bukan halaman publik — jangan ditautkan dari navbar. Jalankan lokal di browser kamu aja.</div>
+
+  <div class="tabs">
+    <div class="tab active" data-tab="pesan">Tambah Pesan</div>
+    <div class="tab" data-tab="foto">Tambah Foto</div>
+  </div>
+
+  <!-- ═══════════ TAB PESAN ═══════════ -->
+  <div class="panel active" id="panel-pesan">
+
+    <div class="step">
+      <span class="step-num">1</span><strong>Muat messages.json yang ada sekarang</strong>
+      <p style="font-size:12.5px;color:#666;margin:6px 0 0">(boleh dilewati kalau ini pesan pertama)</p>
+      <input type="file" id="pesan-load-file" accept="application/json">
+      <p class="count" id="pesan-loaded-count">Belum ada file dimuat — mulai dari kosong.</p>
+    </div>
+
+    <div class="step">
+      <span class="step-num">2</span><strong>Isi dari pesan yang masuk</strong>
+      <label>Nama</label>
+      <input type="text" id="p-nama" placeholder="Nama pengirim">
+      <label>Peran</label>
+      <select id="p-peran">
+        <option value="Siswa">Siswa</option>
+        <option value="Guru">Guru</option>
+      </select>
+      <label>Jurusan (kosongkan kalau Guru)</label>
+      <select id="p-jurusan">
+        <option value="">—</option>
+        <option value="TSM">TSM</option>
+        <option value="MPLB">MPLB</option>
+        <option value="ATP">ATP</option>
+        <option value="APHP">APHP</option>
+      </select>
+      <label>Isi pesan</label>
+      <textarea id="p-isi" placeholder="Tempel isi pesannya di sini"></textarea>
+      <button onclick="addPesan()">+ Tambah ke daftar</button>
+    </div>
+
+    <h2>Daftar pesan siap di-download <span class="count" id="pesan-total-count">(0)</span></h2>
+    <ul id="entry-list"></ul>
+    <button id="pesan-download-btn" class="secondary" onclick="downloadPesan()" disabled>⬇ Download messages.json</button>
+  </div>
+
+  <!-- ═══════════ TAB FOTO ═══════════ -->
+  <div class="panel" id="panel-foto">
+
+    <div class="step">
+      <span class="step-num">1</span><strong>Muat gallery.json yang ada sekarang</strong>
+      <p style="font-size:12.5px;color:#666;margin:6px 0 0">(boleh dilewati kalau ini foto pertama)</p>
+      <input type="file" id="foto-load-file" accept="application/json">
+      <p class="count" id="foto-loaded-count">Belum ada file dimuat — mulai dari kosong.</p>
+    </div>
+
+    <div class="step">
+      <span class="step-num">2</span><strong>Isi dari foto yang masuk</strong>
+      <label>File foto (dari WA/email)</label>
+      <input type="file" id="f-file" accept="image/*">
+      <p style="font-size:12px;color:#666;margin-top:4px">Foto ini TIDAK di-upload ke mana-mana — cuma dipakai buat kasih nama file, lalu didownload lagi biar kamu tinggal seret ke folder <code>assets/images/gallery/</code>.</p>
+      <label>Judul</label>
+      <input type="text" id="f-title" placeholder="Judul foto">
+      <label>Nama pengirim</label>
+      <input type="text" id="f-nama" placeholder="Nama">
+      <label>Kategori</label>
+      <select id="f-category">
+        <option value="kelas">Kelas</option>
+        <option value="praktik">Praktik</option>
+        <option value="acara">Acara</option>
+        <option value="ekstra">Ekstra</option>
+        <option value="umum" selected>Umum</option>
+      </select>
+      <button onclick="addFoto()">+ Tambah ke daftar</button>
+    </div>
+
+    <h2>Daftar foto siap di-download <span class="count" id="foto-total-count">(0)</span></h2>
+    <ul id="gallery-entry-list"></ul>
+    <button id="foto-download-json-btn" class="secondary" onclick="downloadGalleryJson()" disabled>⬇ Download gallery.json</button>
+    <p style="font-size:12px;color:#666;margin-top:10px">
+      Untuk tiap foto yang ditambah, file gambarnya otomatis ke-download juga (sudah diganti nama sesuai yang tertulis di gallery.json) — pindahkan semua ke <code>assets/images/gallery/</code>.
+    </p>
+  </div>
+
+<!-- utils.js dimuat cuma buat escHtml() — data yang ditempel di sini asalnya
+     dari WA/email orang lain, jadi preview di bawah harus di-escape. -->
+<script src="assets/js/utils.js"></script>
+<script>
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+  });
+});
+
+function downloadBlob(filename, content, type) {
+  const blob = new Blob([content], { type });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click(); a.remove();
+  URL.revokeObjectURL(url);
+}
+
+// ══════════ PESAN ══════════
+let pesanList = [];
+
+document.getElementById('pesan-load-file').addEventListener('change', async (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  try {
+    pesanList = JSON.parse(await file.text());
+    if (!Array.isArray(pesanList)) throw new Error('Bukan array');
+    document.getElementById('pesan-loaded-count').textContent = `✓ Dimuat: ${pesanList.length} pesan yang sudah ada.`;
+    renderPesanList();
+  } catch (err) {
+    alert('Gagal baca file: ' + err.message);
+  }
+});
+
+function addPesan() {
+  const nama    = document.getElementById('p-nama').value.trim();
+  const peran   = document.getElementById('p-peran').value;
+  const jurusan = document.getElementById('p-jurusan').value;
+  const isi     = document.getElementById('p-isi').value.trim();
+  if (!nama || !isi) { alert('Nama & isi pesan wajib diisi'); return; }
+
+  const nextId = pesanList.reduce((max, p) => Math.max(max, p.id || 0), 0) + 1;
+  pesanList.push({
+    id: nextId, nama, peran, jurusan: jurusan || null, isi,
+    likes: 0, created_at: new Date().toISOString(), reaksi: {}
+  });
+  ['p-nama', 'p-isi'].forEach(id => document.getElementById(id).value = '');
+  renderPesanList();
+}
+
+function removePesan(id) {
+  pesanList = pesanList.filter(p => p.id !== id);
+  renderPesanList();
+}
+
+function renderPesanList() {
+  const ul = document.getElementById('entry-list');
+  ul.innerHTML = pesanList.map(p =>
+    `<li><span><strong>${escHtml(p.nama)}</strong> (${escHtml(p.peran)}${p.jurusan ? ' · ' + escHtml(p.jurusan) : ''}): ${escHtml(p.isi.slice(0,60))}${p.isi.length>60?'…':''}</span>
+     <button onclick="removePesan(${p.id})">Hapus</button></li>`
+  ).join('');
+  document.getElementById('pesan-total-count').textContent = `(${pesanList.length})`;
+  document.getElementById('pesan-download-btn').disabled = pesanList.length === 0;
+}
+
+function downloadPesan() {
+  downloadBlob('messages.json', JSON.stringify(pesanList, null, 2), 'application/json');
+}
+
+// ══════════ FOTO ══════════
+let galleryList = [];
+let loadedAdminGallery = []; // dijaga apa adanya biar nggak ke-timpa kosong
+let pendingFotoFile = null;
+
+document.getElementById('foto-load-file').addEventListener('change', async (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  try {
+    const parsed = JSON.parse(await file.text());
+    galleryList = Array.isArray(parsed.user) ? parsed.user : [];
+    loadedAdminGallery = Array.isArray(parsed.admin) ? parsed.admin : [];
+    document.getElementById('foto-loaded-count').textContent =
+      `✓ Dimuat: ${galleryList.length} foto user, ${loadedAdminGallery.length} foto admin (foto admin ikut disimpan apa adanya).`;
+    renderGalleryList();
+  } catch (err) {
+    alert('Gagal baca file: ' + err.message);
+  }
+});
+
+document.getElementById('f-file').addEventListener('change', (e) => {
+  pendingFotoFile = e.target.files[0] || null;
+});
+
+function addFoto() {
+  const title    = document.getElementById('f-title').value.trim();
+  const nama     = document.getElementById('f-nama').value.trim();
+  const category = document.getElementById('f-category').value;
+  if (!pendingFotoFile) { alert('Pilih file foto dulu'); return; }
+  if (!title) { alert('Judul wajib diisi'); return; }
+
+  const nextId = galleryList.reduce((max, p) => Math.max(max, p.id || 0), 0) + 1;
+  const ext = (pendingFotoFile.name.split('.').pop() || 'jpg').toLowerCase();
+  const filename = `foto-${String(nextId).padStart(3, '0')}.${ext}`;
+
+  galleryList.push({
+    id: nextId, title, description: '',
+    image_url: `../assets/images/gallery/${filename}`,
+    category, username: nama || 'Anonim',
+    likes_count: 0, views_count: 0,
+    created_at: new Date().toISOString(), reaksi: {}
+  });
+
+  // Download file gambarnya juga, sudah diganti nama
+  const reader = new FileReader();
+  reader.onload = () => downloadBlob(filename, reader.result, pendingFotoFile.type);
+  reader.readAsArrayBuffer(pendingFotoFile);
+
+  ['f-title', 'f-nama'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('f-file').value = '';
+  pendingFotoFile = null;
+  renderGalleryList();
+}
+
+function removeFoto(id) {
+  galleryList = galleryList.filter(p => p.id !== id);
+  renderGalleryList();
+}
+
+function renderGalleryList() {
+  const ul = document.getElementById('gallery-entry-list');
+  ul.innerHTML = galleryList.map(p =>
+    `<li><span><strong>${escHtml(p.title)}</strong> — ${escHtml(p.username)} (${escHtml(p.category)})<br><small>${escHtml(p.image_url)}</small></span>
+     <button onclick="removeFoto(${p.id})">Hapus</button></li>`
+  ).join('');
+  document.getElementById('foto-total-count').textContent = `(${galleryList.length})`;
+  document.getElementById('foto-download-json-btn').disabled = galleryList.length === 0;
+}
+
+function downloadGalleryJson() {
+  downloadBlob('gallery.json', JSON.stringify({ admin: loadedAdminGallery, user: galleryList }, null, 2), 'application/json');
+}
+</script>
+</body>
+</html>

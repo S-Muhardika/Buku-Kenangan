@@ -1,0 +1,680 @@
+{
+  "admin": [
+    {
+      "id": 28,
+      "title": "Dibalik Foto Ijazah TSM",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1775739931226-76c0s7a.webp",
+      "category": "kelas",
+      "jurusan": "TSM",
+      "display_order": 1,
+      "reaksi": {}
+    },
+    {
+      "id": 73,
+      "title": "Dibalik Foto Ijazah TSM",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776959743862-wqjodtk.webp",
+      "category": "kelas",
+      "jurusan": "TSM",
+      "display_order": 1,
+      "reaksi": {}
+    },
+    {
+      "id": 40,
+      "title": "Dibalik Foto Ijazah TSM",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776846027376-xbpe1qe.webp",
+      "category": "kelas",
+      "jurusan": "TSM",
+      "display_order": 1,
+      "reaksi": {}
+    },
+    {
+      "id": 38,
+      "title": "Dibalik Foto Ijazah TSM",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776845764383-uenjlbl.webp",
+      "category": "kelas",
+      "jurusan": "TSM",
+      "display_order": 1,
+      "reaksi": {}
+    },
+    {
+      "id": 58,
+      "title": "Dibalik Foto Ijazah TSM",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776952813952-bggl4i0.webp",
+      "category": "kelas",
+      "jurusan": "TSM",
+      "display_order": 1,
+      "reaksi": {
+        "❤️": 1
+      }
+    },
+    {
+      "id": 39,
+      "title": "Dibalik Foto Ijazah MP",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776845853931-wxbj7oy.webp",
+      "category": "kelas",
+      "jurusan": "MPLB",
+      "display_order": 2,
+      "reaksi": {}
+    },
+    {
+      "id": 41,
+      "title": "Dibalik Foto Ijazah MP",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776846120789-qthol0m.webp",
+      "category": "kelas",
+      "jurusan": "MPLB",
+      "display_order": 2,
+      "reaksi": {}
+    },
+    {
+      "id": 52,
+      "title": "Dibalik Foto Ijazah MP",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776871256798-4jehlk0.webp",
+      "category": "kelas",
+      "jurusan": "MPLB",
+      "display_order": 2,
+      "reaksi": {}
+    },
+    {
+      "id": 53,
+      "title": "Dibalik Foto Ijazah MP",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776922775224-9oqdtr8.webp",
+      "category": "kelas",
+      "jurusan": "MPLB",
+      "display_order": 2,
+      "reaksi": {}
+    },
+    {
+      "id": 47,
+      "title": "PKL (Praktik Kerja Lapangan) ATP",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776868962077-gb9ngma.webp",
+      "category": "praktik",
+      "jurusan": "ATP",
+      "display_order": 3,
+      "reaksi": {
+        "❤️": 1
+      }
+    },
+    {
+      "id": 46,
+      "title": "UKK (Uji Kompetensi Keahlian) ATP",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776868881362-gmc6s22.webp",
+      "category": "praktik",
+      "jurusan": "ATP",
+      "display_order": 3,
+      "reaksi": {}
+    },
+    {
+      "id": 69,
+      "title": "UKK (Uji Kompetensi Keahlian) ATP",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776959441833-pl65m0a.webp",
+      "category": "praktik",
+      "jurusan": "ATP",
+      "display_order": 3,
+      "reaksi": {}
+    },
+    {
+      "id": 45,
+      "title": "Saat di hukum",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776868774946-sul5ors.webp",
+      "category": "kelas",
+      "jurusan": "ATP",
+      "display_order": 3,
+      "reaksi": {}
+    },
+    {
+      "id": 44,
+      "title": "Dibalik Foto Ijazah ATP",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776868639823-09kqgzw.webp",
+      "category": "kelas",
+      "jurusan": "ATP",
+      "display_order": 3,
+      "reaksi": {}
+    },
+    {
+      "id": 85,
+      "title": "Dibalik Foto Ijazah APHP",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1777095300543-trh9deg.webp",
+      "category": "kelas",
+      "jurusan": "APHP",
+      "display_order": 4,
+      "reaksi": {
+        "❤️": 1
+      }
+    },
+    {
+      "id": 91,
+      "title": "Praktik APHP",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1777259656378-6udgoh4.webp",
+      "category": "praktik",
+      "jurusan": "APHP",
+      "display_order": 4,
+      "reaksi": {}
+    },
+    {
+      "id": 90,
+      "title": "Setelah UKK APHP",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1777097692036-b851ud2.webp",
+      "category": "kelas",
+      "jurusan": "APHP",
+      "display_order": 4,
+      "reaksi": {
+        "❤️": 1
+      }
+    },
+    {
+      "id": 86,
+      "title": "UKK TSM",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1777095344731-dvw8igy.webp",
+      "category": "praktik",
+      "jurusan": "TSM",
+      "display_order": 5,
+      "reaksi": {}
+    },
+    {
+      "id": 84,
+      "title": "Setelah UKK TSM",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1777095150174-gqb6bj0.webp",
+      "category": "kelas",
+      "jurusan": "TSM",
+      "display_order": 5,
+      "reaksi": {}
+    },
+    {
+      "id": 59,
+      "title": "Foto setelah UKK",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776953105680-j779jio.webp",
+      "category": "kelas",
+      "jurusan": "MPLB",
+      "display_order": 6,
+      "reaksi": {}
+    },
+    {
+      "id": 65,
+      "title": "UKK (Uji Kompetensi Keahlian) MP",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776956022391-5jbhdg9.webp",
+      "category": "praktik",
+      "jurusan": "MPLB",
+      "display_order": 6,
+      "reaksi": {}
+    },
+    {
+      "id": 64,
+      "title": "UKK (Uji Kompetensi Keahlian) MP",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776955963382-bejago3.webp",
+      "category": "praktik",
+      "jurusan": "MPLB",
+      "display_order": 6,
+      "reaksi": {}
+    },
+    {
+      "id": 63,
+      "title": "UKK (Uji Kompetensi Keahlian) MP",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776955913024-jwkhekf.webp",
+      "category": "praktik",
+      "jurusan": "MPLB",
+      "display_order": 6,
+      "reaksi": {}
+    },
+    {
+      "id": 66,
+      "title": "Setelah UKK",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776956640937-5u9vwj3.webp",
+      "category": "kelas",
+      "jurusan": "MPLB",
+      "display_order": 6,
+      "reaksi": {}
+    },
+    {
+      "id": 92,
+      "title": "Makan bersama",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1777259871872-9bal7qc.webp",
+      "category": "acara",
+      "jurusan": "APHP",
+      "display_order": 7,
+      "reaksi": {
+        "❤️": 1
+      }
+    },
+    {
+      "id": 88,
+      "title": "UKK APHP",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1777097583823-xloipzl.webp",
+      "category": "praktik",
+      "jurusan": "APHP",
+      "display_order": 8,
+      "reaksi": {}
+    },
+    {
+      "id": 89,
+      "title": "UKK APHP",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1777097638409-qurhgo8.webp",
+      "category": "praktik",
+      "jurusan": "APHP",
+      "display_order": 8,
+      "reaksi": {}
+    },
+    {
+      "id": 87,
+      "title": "UKK APHP",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1777097524231-rrk4p5e.webp",
+      "category": "praktik",
+      "jurusan": "APHP",
+      "display_order": 8,
+      "reaksi": {}
+    },
+    {
+      "id": 79,
+      "title": "Foto bersama",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1777094370246-58ffe90.webp",
+      "category": "kelas",
+      "jurusan": "TSM",
+      "display_order": 9,
+      "reaksi": {}
+    },
+    {
+      "id": 43,
+      "title": "Hari Pertama di Semester 6",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776860090229-arbpon5.webp",
+      "category": "kelas",
+      "jurusan": "TSM",
+      "display_order": 10,
+      "reaksi": {}
+    },
+    {
+      "id": 74,
+      "title": "Hari Pertama di Semester 6",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776959844503-pnh6x5s.webp",
+      "category": "kelas",
+      "jurusan": "TSM",
+      "display_order": 10,
+      "reaksi": {}
+    },
+    {
+      "id": 35,
+      "title": "Classmeet (Mini Soccer)",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776416820436-z85iisd.webp",
+      "category": "acara",
+      "jurusan": "TSM",
+      "display_order": 14,
+      "reaksi": {}
+    },
+    {
+      "id": 75,
+      "title": "Drumband",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776960123501-mgca85u.webp",
+      "category": "ekstra",
+      "jurusan": null,
+      "display_order": 15,
+      "reaksi": {}
+    },
+    {
+      "id": 30,
+      "title": "Drumband",
+      "description": "Foto bersama setelah upacara 17 Agustus",
+      "photo_url": "../assets/images/gallery/admin-1775835375643-d2bsze7.webp",
+      "category": "ekstra",
+      "jurusan": null,
+      "display_order": 15,
+      "reaksi": {}
+    },
+    {
+      "id": 31,
+      "title": "Pramuka",
+      "description": "Menjadi kepanitiaan tuan rumah",
+      "photo_url": "../assets/images/gallery/admin-1775836234023-l1wqrgi.webp",
+      "category": "ekstra",
+      "jurusan": null,
+      "display_order": 16,
+      "reaksi": {}
+    },
+    {
+      "id": 32,
+      "title": "Praktek TSM",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776416416554-jbbxwr4.webp",
+      "category": "praktik",
+      "jurusan": "TSM",
+      "display_order": 17,
+      "reaksi": {}
+    },
+    {
+      "id": 33,
+      "title": "Upacara pelantikan OSIS Tahun ajaran 2024 - 2025",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776416498244-1wa1q2h.webp",
+      "category": "acara",
+      "jurusan": null,
+      "display_order": 18,
+      "reaksi": {}
+    },
+    {
+      "id": 34,
+      "title": "Praktik APHP",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776416687827-wdqzpuj.webp",
+      "category": "praktik",
+      "jurusan": "APHP",
+      "display_order": 19,
+      "reaksi": {
+        "❤️": 2
+      }
+    },
+    {
+      "id": 29,
+      "title": "Satu angkatan",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1775835068848-9w70mm7.webp",
+      "category": "umum",
+      "jurusan": null,
+      "display_order": 20,
+      "reaksi": {}
+    },
+    {
+      "id": 36,
+      "title": "Kegiatan P5 (Projek Penguatan Profil Pelajar Pancasila)",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776652896456-eio6czd.webp",
+      "category": "acara",
+      "jurusan": null,
+      "display_order": 21,
+      "reaksi": {}
+    },
+    {
+      "id": 71,
+      "title": "Pawai Memperingati Hari Kemerdekaan 2023",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776959632971-eesdlkx.webp",
+      "category": "acara",
+      "jurusan": null,
+      "display_order": 22,
+      "reaksi": {}
+    },
+    {
+      "id": 72,
+      "title": "Pawai Memperingati Hari Kemerdekaan 2023",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776959654707-gsrwh60.webp",
+      "category": "acara",
+      "jurusan": null,
+      "display_order": 22,
+      "reaksi": {}
+    },
+    {
+      "id": 68,
+      "title": "Pembagian Raport Semester 3",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776957395684-cthur3t.webp",
+      "category": "kelas",
+      "jurusan": "TSM",
+      "display_order": 22,
+      "reaksi": {}
+    },
+    {
+      "id": 42,
+      "title": "Pembagian Raport Semester 4",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776846439990-yt3tn4f.webp",
+      "category": "kelas",
+      "jurusan": "TSM",
+      "display_order": 22,
+      "reaksi": {}
+    },
+    {
+      "id": 67,
+      "title": "Pawai Memperingati Hari Kemerdekaan 2023",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776956768837-4i47zwr.webp",
+      "category": "acara",
+      "jurusan": null,
+      "display_order": 23,
+      "reaksi": {}
+    },
+    {
+      "id": 48,
+      "title": "Pawai Acara Memperingati hari Kemerdekaan 2024",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776869206662-auilrmp.webp",
+      "category": "acara",
+      "jurusan": null,
+      "display_order": 24,
+      "reaksi": {}
+    },
+    {
+      "id": 61,
+      "title": "Pawai Memperingati Hari Kemerdekaan",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776953753503-xauhj17.webp",
+      "category": "acara",
+      "jurusan": null,
+      "display_order": 24,
+      "reaksi": {}
+    },
+    {
+      "id": 62,
+      "title": "Pawai Memperingati Hari Kemerdekaan 2024",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776954456859-3b1z6ui.webp",
+      "category": "acara",
+      "jurusan": null,
+      "display_order": 24,
+      "reaksi": {}
+    },
+    {
+      "id": 49,
+      "title": "Drumband di kegiatan Hari Jadi Provinsi Riau",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776869467509-s59v4f3.webp",
+      "category": "ekstra",
+      "jurusan": null,
+      "display_order": 25,
+      "reaksi": {}
+    },
+    {
+      "id": 54,
+      "title": "Ulang Tahun ibu Ulfa",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776922997127-dqrvhq5.webp",
+      "category": "kelas",
+      "jurusan": "TSM",
+      "display_order": 26,
+      "reaksi": {}
+    },
+    {
+      "id": 55,
+      "title": "Kegiatan P5",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776952222760-khluf8e.webp",
+      "category": "acara",
+      "jurusan": null,
+      "display_order": 27,
+      "reaksi": {}
+    },
+    {
+      "id": 76,
+      "title": "Kegiatan P5",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776960265548-wkrsivw.webp",
+      "category": "acara",
+      "jurusan": null,
+      "display_order": 27,
+      "reaksi": {}
+    },
+    {
+      "id": 56,
+      "title": "Kegiatan P5",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776952330460-x5djz6j.webp",
+      "category": "acara",
+      "jurusan": null,
+      "display_order": 28,
+      "reaksi": {}
+    },
+    {
+      "id": 57,
+      "title": "Kegiatan P5",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776952398862-tjiusbd.webp",
+      "category": "acara",
+      "jurusan": null,
+      "display_order": 29,
+      "reaksi": {}
+    },
+    {
+      "id": 60,
+      "title": "Kegiatan P5",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776953537452-mwxcj7s.webp",
+      "category": "acara",
+      "jurusan": null,
+      "display_order": 30,
+      "reaksi": {}
+    },
+    {
+      "id": 70,
+      "title": "Lomba Memperingati HUT RI",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776959601805-m8q2fgj.webp",
+      "category": "acara",
+      "jurusan": null,
+      "display_order": 31,
+      "reaksi": {}
+    },
+    {
+      "id": 83,
+      "title": "Lomba Kuliner MP",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1777094816324-xsgjs3a.webp",
+      "category": "kelas",
+      "jurusan": "MPLB",
+      "display_order": 32,
+      "reaksi": {}
+    },
+    {
+      "id": 82,
+      "title": "Lomba Kuliner ATP",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1777094796311-2cp6eg0.webp",
+      "category": "kelas",
+      "jurusan": "ATP",
+      "display_order": 32,
+      "reaksi": {
+        "😂": 1
+      }
+    },
+    {
+      "id": 81,
+      "title": "Lomba Kuliner",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1777094756572-uyermbs.webp",
+      "category": "kelas",
+      "jurusan": "TSM",
+      "display_order": 32,
+      "reaksi": {}
+    },
+    {
+      "id": 80,
+      "title": "Lomba Kuliner",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1777094741033-tq8qwv9.webp",
+      "category": "kelas",
+      "jurusan": "TSM",
+      "display_order": 32,
+      "reaksi": {}
+    },
+    {
+      "id": 78,
+      "title": "TSM dihari Sumpah Pemuda 28 Oktober 2023",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776960563366-fcda8fi.webp",
+      "category": "acara",
+      "jurusan": "TSM",
+      "display_order": 33,
+      "reaksi": {}
+    },
+    {
+      "id": 77,
+      "title": "Workshop Kepemimpinan dan Tanggung Jawab Sosial Siswa",
+      "description": "",
+      "photo_url": "../assets/images/gallery/admin-1776960360192-77cvv4y.webp",
+      "category": "acara",
+      "jurusan": null,
+      "display_order": 34,
+      "reaksi": {}
+    }
+  ],
+  "user": [
+    {
+      "id": 27,
+      "title": "Apel pagi pada saat pkl",
+      "description": "",
+      "image_url": "../assets/images/gallery/user-1777544713655-0qbt9l4nh.webp",
+      "category": "kelas",
+      "username": "Arifrfza",
+      "likes_count": 3,
+      "views_count": 21,
+      "created_at": "2026-04-30T10:25:14.581351+00:00",
+      "reaksi": {}
+    },
+    {
+      "id": 26,
+      "title": "Belajar",
+      "description": "",
+      "image_url": "../assets/images/gallery/user-1777544573621-vs0c6atj9.webp",
+      "category": "kelas",
+      "username": "Arifrfza",
+      "likes_count": 2,
+      "views_count": 38,
+      "created_at": "2026-04-30T10:22:54.734834+00:00",
+      "reaksi": {
+        "👏": 1
+      }
+    },
+    {
+      "id": 25,
+      "title": "Foto bersama sebelum pkl",
+      "description": "",
+      "image_url": "../assets/images/gallery/user-1777544479420-abjlryn6f.webp",
+      "category": "praktik",
+      "username": "Arifrfza",
+      "likes_count": 2,
+      "views_count": 19,
+      "created_at": "2026-04-30T10:21:22.285388+00:00",
+      "reaksi": {
+        "👏": 1
+      }
+    }
+  ]
+}

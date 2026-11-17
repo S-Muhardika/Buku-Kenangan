@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Export Data — Pernah di Sini (tool internal)</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+  body {
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    max-width: 640px;
+    margin: 40px auto;
+    padding: 0 20px;
+    color: #1a1a1a;
+    line-height: 1.6;
+  }
+  h1 { font-size: 20px; }
+  .note {
+    background: #fff8e1;
+    border: 1px solid #e0c46c;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    margin: 16px 0;
+  }
+  button {
+    background: #1a1a1a;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  button:disabled { opacity: 0.5; cursor: default; }
+  #log {
+    margin-top: 20px;
+    font-family: ui-monospace, monospace;
+    font-size: 12.5px;
+    white-space: pre-wrap;
+    background: #f5f5f5;
+    padding: 14px;
+    border-radius: 8px;
+    max-height: 360px;
+    overflow-y: auto;
+  }
+  .ok   { color: #1a7a3c; }
+  .err  { color: #b3261e; }
+</style>
+</head>
+<body>
+
+  <h1>🗃️ Export Data — Pernah di Sini</h1>
+  <p>Tool internal sekali-pakai. Narik data terbaru dari Supabase (siswa, pesan approved, foto approved + reaksi), lalu men-download 3 file: <code>students.json</code>, <code>messages.json</code>, <code>gallery.json</code>. Tinggal timpa file yang sama di folder <code>data/</code>.</p>
+
+  <div class="note">
+    ⚠️ Ini bukan halaman untuk pengunjung — jangan ditautkan dari navbar. Aman ditinggal di repo (cuma baca data yang memang sudah publik lewat anon key yang sama dipakai situs utama), tapi kalau mau lebih rapi, hapus file ini setelah proses freeze selesai.
+  </div>
+
+  <p><button id="btn-export">Export Semua Data</button></p>
+
+  <div id="log"></div>
+
+<script>
+const CONFIG = {
+  SUPABASE_URL: 'https://fgawodvnrvrncebomjwu.supabase.co',
+  SUPABASE_ANON_KEY: 'sb_publishable_etivxE7GiA_HNTepy4n99Q_IVxaapwK',
+};
+
+const db = supabase.createClient(CONFIG.SUPABASE_URL, CONFIG.SUPABASE_ANON_KEY);
+const logEl = document.getElementById('log');
+const btn   = document.getElementById('btn-export');
+
+function log(msg, cls) {
+  const line = document.createElement('div');
+  if (cls) line.className = cls;
+  line.textContent = msg;
+  logEl.appendChild(line);
+  logEl.scrollTop = logEl.scrollHeight;
+}
+
+function downloadFile(filename, text) {
+  const blob = new Blob([text], { type: 'application/json' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click(); a.remove();
+  URL.revokeObjectURL(url);
+}
+
+// Sama seperti reaksiMap di supabase.js — satu implementasi dipakai ulang di sini
+function buildReaksiMap(rows, idKey) {
+  const map = {};
+  (rows || []).forEach(r => {
+    const id = r[idKey];
+    if (!map[id]) map[id] = {};
+    map[id][r.emoji] = (map[id][r.emoji] || 0) + 1;
+  });
+  return map;
+}
+
+async function exportAll() {
+  btn.disabled = true;
+  logEl.innerHTML = '';
+  let hadError = false;
+
+  try {
+    // ── STUDENTS ──
+    log('Mengambil data siswa...');
+    const { data: students, error: eStudents } = await db
+      .from('students')
+      .select('id, name, jurusan, wali_kelas')
+      .eq('is_active', true)
+      .eq('angkatan', '2026')
+      .order('jurusan').order('name');
+    if (eStudents) throw new Error('students: ' + eStudents.message);
+    log(`  ✓ ${students.length} siswa`, 'ok');
+
+    downloadFile('students.json', JSON.stringify(students, null, 2));
+
+    // ── MESSAGES ──
+    log('Mengambil pesan approved...');
+    const { data: pesan, error: ePesan } = await db
+      .from('pesan')
+      .select('id, nama, peran, jurusan, isi, likes, created_at')
+      .eq('status', 'approved')
+      .order('created_at', { ascending: false });
+    if (ePesan) throw new Error('pesan: ' + ePesan.message);
+
+    let pesanReaksiMap = {};
+    if (pesan.length) {
+      const { data: pr, error: ePr } = await db
+        .from('pesan_reaksi').select('pesan_id, emoji').in('pesan_id', pesan.map(p => p.id));
+      if (ePr) throw new Error('pesan_reaksi: ' + ePr.message);
+      pesanReaksiMap = buildReaksiMap(pr, 'pesan_id');
+    }
+    const messages = pesan.map(p => ({ ...p, reaksi: pesanReaksiMap[p.id] || {} }));
+    log(`  ✓ ${messages.length} pesan`, 'ok');
+
+    downloadFile('messages.json', JSON.stringify(messages, null, 2));
+
+    // ── GALLERY ──
+    log('Mengambil foto admin (dokumentasi resmi)...');
+    const { data: adminPhotos, error: eAdmin } = await db
+      .from('admin_gallery')
+      .select('id, title, description, photo_url, category, jurusan, display_order')
+      .eq('is_active', true)
+      .order('display_order', { ascending: true });
+    if (eAdmin) throw new Error('admin_gallery: ' + eAdmin.message);
+
+    log('Mengambil foto kiriman user (approved)...');
+    const { data: userPhotos, error: eUser } = await db
+      .from('user_gallery')
+      .select('id, title, description, image_url, category, username, likes_count, views_count, created_at')
+      .eq('status', 'approved')
+      .order('created_at', { ascending: false });
+    if (eUser) throw new Error('user_gallery: ' + eUser.message);
+
+    const allIds = [...adminPhotos.map(p => p.id), ...userPhotos.map(p => p.id)];
+    let galeriReaksiMap = {};
+    if (allIds.length) {
+      const { data: gr, error: eGr } = await db
+        .from('galeri_reaksi').select('galeri_id, emoji').in('galeri_id', allIds);
+      if (eGr) throw new Error('galeri_reaksi: ' + eGr.message);
+      galeriReaksiMap = buildReaksiMap(gr, 'galeri_id');
+    }
+    const adminGalleryOut = adminPhotos.map(p => ({ ...p, reaksi: galeriReaksiMap[p.id] || {} }));
+    const userGalleryOut  = userPhotos.map(p  => ({ ...p, reaksi: galeriReaksiMap[p.id] || {} }));
+    log(`  ✓ ${adminGalleryOut.length} foto admin, ${userGalleryOut.length} foto user`, 'ok');
+
+    downloadFile('gallery.json', JSON.stringify({ admin: adminGalleryOut, user: userGalleryOut }, null, 2));
+
+    log('\nSelesai! 3 file ke-download: students.json, messages.json, gallery.json', 'ok');
+    log('Pindahkan ketiganya ke folder data/ (timpa yang lama).', 'ok');
+    log('Catatan: photo_url/image_url di gallery.json masih menunjuk ke Supabase Storage — bucket "gallery_photos" harus tetap ada & public.', 'ok');
+
+  } catch (e) {
+    hadError = true;
+    log('✗ Gagal: ' + e.message, 'err');
+    log('Cek: apakah anon key masih valid, dan RLS masih izinkan SELECT publik untuk tabel terkait.', 'err');
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+btn.addEventListener('click', exportAll);
+</script>
+</body>
+</html>

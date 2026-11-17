@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angkatan — Pernah di Sini</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="icon" href="../assets/icons/favicon.ico">
+<script src="../assets/js/utils.js"></script>
+<script src="../assets/js/data.js"></script>
+</head>
+<body>
+
+  <!-- TAB BAR -->
+  <nav class="tab-bar">
+    <a href="../index.html" class="tab-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="tab-label">Beranda</span></a>
+    <a href="angkatan.html" class="tab-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span class="tab-label">Angkatan</span></a>
+    <a href="galeri.html" class="tab-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span class="tab-label">Galeri</span></a>
+    <a href="pesan.html" class="tab-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg><span class="tab-label">Pesan</span></a>
+    <a href="pustaka.html" class="tab-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span class="tab-label">Pustaka</span></a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-eyebrow fade-up delay-1">Angkatan 2023 – 2026</p>
+    <h1 class="hero-title fade-up delay-2">Arsip <em>Angkatan.</em></h1>
+    <p class="hero-sub fade-up delay-3">68 nama, 4 cerita. Tidak semuanya sampai pada halaman yang sama.</p>
+    <div class="hero-stat fade-up delay-4">
+      <div class="dot" id="badge-dot"></div>
+      <span id="total-label">68 siswa</span>
+      <div class="sep"></div>
+      <span>4 Jurusan</span>
+    </div>
+  </div>
+
+  <!-- FILTER JURUSAN -->
+  <div class="filter-block">
+    <div class="card-semua active" id="card-semua" data-jurusan="all" tabindex="0" role="button" aria-pressed="true" aria-label="Filter semua jurusan">
+      <div>
+        <div class="cs-label">Semua Jurusan</div>
+        <div class="cs-sub">Angkatan 2026</div>
+      </div>
+      <div class="cs-count" id="count-all">68</div>
+    </div>
+    <div class="jurusan-grid">
+      <div class="jurusan-card" data-jurusan="TSM" tabindex="0" role="button" aria-pressed="false" aria-label="Filter jurusan TSM">
+        <div class="jc-name">TSM</div>
+        <div class="jc-wali" id="wali-TSM">—</div>
+        <div class="jc-count" id="count-TSM">— siswa</div>
+      </div>
+      <div class="jurusan-card" data-jurusan="MPLB" tabindex="0" role="button" aria-pressed="false" aria-label="Filter jurusan MPLB">
+        <div class="jc-name">MPLB</div>
+        <div class="jc-wali" id="wali-MPLB">—</div>
+        <div class="jc-count" id="count-MPLB">— siswa</div>
+      </div>
+      <div class="jurusan-card" data-jurusan="ATP" tabindex="0" role="button" aria-pressed="false" aria-label="Filter jurusan ATP">
+        <div class="jc-name">ATP</div>
+        <div class="jc-wali" id="wali-ATP">—</div>
+        <div class="jc-count" id="count-ATP">— siswa</div>
+      </div>
+      <div class="jurusan-card" data-jurusan="APHP" tabindex="0" role="button" aria-pressed="false" aria-label="Filter jurusan APHP">
+        <div class="jc-name">APHP</div>
+        <div class="jc-wali" id="wali-APHP">—</div>
+        <div class="jc-count" id="count-APHP">— siswa</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEPALA JURUSAN -->
+  <div class="kajur-block">
+    <p class="block-label">Ketua Program Kompetensi</p>
+    <div class="kajur-grid">
+      <div class="kajur-card"><div class="kajur-j">TSM</div><div class="kajur-nama">Roy Indra Setiawan</div><div class="kajur-jabatan">Ketua Program Kompetensi TSM</div></div>
+      <div class="kajur-card"><div class="kajur-j">MPLB</div><div class="kajur-nama">Elvi Hartati, S.E</div><div class="kajur-jabatan">Ketua Program Kompetensi MPLB</div></div>
+      <div class="kajur-card"><div class="kajur-j">ATP</div><div class="kajur-nama">Masdiyanto, S. P</div><div class="kajur-jabatan">Ketua Program Kompetensi ATP</div></div>
+      <div class="kajur-card"><div class="kajur-j">APHP</div><div class="kajur-nama">Gustri Sarah Br. Regar, S. P</div><div class="kajur-jabatan">Ketua Program Kompetensi APHP</div></div>
+    </div>
+  </div>
+
+  <!-- RESET -->
+  <div class="reset-wrap">
+    <button class="reset-btn" id="reset-btn">
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/>
+      </svg>
+      Reset Filter
+    </button>
+  </div>
+
+  <!-- INISIAL -->
+  <div class="alpha-block">
+    <p class="block-label">Inisial</p>
+    <div class="alpha-grid" id="alpha-grid"></div>
+  </div>
+
+  <!-- DAFTAR SISWA -->
+  <div class="students-block">
+    <div class="students-grid" id="students-grid"></div>
+  </div>
+
+  <footer class="site-footer">
+    <p>SMK Negeri 3 Tapung Hulu</p>
+    <div class="gold-line"></div>
+    <small>Angkatan 2023 – 2026 &nbsp;·&nbsp; © 2026 Pernah di Sini</small>
+  </footer>
+
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const JC = { TSM:'#E05C50', MPLB:'#D4AC0D', ATP:'#27AE60', APHP:'#3498DB' };
+    const LETTERS = ['All','A','B','C','D','E','F','G','H','I','J','K','L','M',
+                     'N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+
+    let allSiswa      = [];
+    let activeJurusan = 'all';
+    let activeLetter  = 'all';
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      buildAlphabet();
+      bindFilters();
+      await loadSiswa();
+    });
+
+    async function loadSiswa() {
+      showSkeleton();
+      // Dulu fetch live dari Supabase (tabel `students`) — sekarang situs
+      // statis, datanya diambil dari data/students.json lewat data.js.
+      allSiswa = await loadStudents();
+      allSiswa.sort((a, b) => a.jurusan.localeCompare(b.jurusan) || a.name.localeCompare(b.name, 'id'));
+
+      if (!allSiswa.length) {
+        document.getElementById('students-grid').innerHTML =
+          `<div class="empty-state"><p>Data siswa belum tersedia.</p></div>`;
+        return;
+      }
+      updateMeta();
+      renderStudents();
+    }
+
+    function updateMeta() {
+      const total = allSiswa.length;
+      document.getElementById('total-label').textContent = `${total} siswa`;
+      document.getElementById('count-all').textContent   = total;
+
+      JURUSAN_LIST.forEach(j => {
+        const list    = allSiswa.filter(s => s.jurusan === j);
+        const countEl = document.getElementById(`count-${j}`);
+        const waliEl  = document.getElementById(`wali-${j}`);
+        if (countEl) countEl.textContent = `${list.length} siswa`;
+        if (waliEl && list[0]?.wali_kelas) waliEl.textContent = list[0].wali_kelas;
+      });
+    }
+
+    function renderStudents(animate = false) {
+      const grid = document.getElementById('students-grid');
+
+      const filtered = allSiswa
+        .filter(s => {
+          if (activeJurusan !== 'all' && s.jurusan !== activeJurusan) return false;
+          if (activeLetter  !== 'all' && s.name.trim().charAt(0).toUpperCase() !== activeLetter) return false;
+          return true;
+        })
+        .sort((a, b) => a.name.localeCompare(b.name, 'id'));
+
+      if (!filtered.length) {
+        grid.innerHTML = `
+          <div class="empty-state">
+            <p>Tidak ada siswa yang cocok dengan filter ini.</p>
+            <button class="reset-btn" onclick="doReset()">Tampilkan Semua</button>
+          </div>`;
+        return;
+      }
+
+      const counters = { TSM:0, MPLB:0, ATP:0, APHP:0 };
+      const numMap   = {};
+      allSiswa.slice().sort((a,b) => a.name.localeCompare(b.name,'id'))
+        .forEach(s => { numMap[s.id] = ++counters[s.jurusan]; });
+
+      const useColor = activeJurusan !== 'all';
+      if (animate) grid.classList.add('switching');
+
+      grid.innerHTML = filtered.map((s, idx) => {
+        const num      = numMap[s.id] || '?';
+        const id       = `${s.jurusan}-${String(num).padStart(2,'0')}`;
+        const colorCls = useColor ? ` colored-${s.jurusan}` : '';
+        return `
+          <div class="student-card${colorCls}">
+            <div class="student-num">${idx + 1}</div>
+            <div class="student-info">
+              <div class="student-name">${escHtml(s.name)}</div>
+              <div class="student-meta">
+                <span class="student-id">${escHtml(id)}</span>
+                <span class="student-badge">${escHtml(getJurusanLabel(s.jurusan))}</span>
+              </div>
+            </div>
+          </div>`;
+      }).join('');
+
+      if (animate) setTimeout(() => grid.classList.remove('switching'), 350);
+    }
+
+    function showSkeleton() {
+      document.getElementById('students-grid').innerHTML = Array(8).fill(`
+        <div class="skeleton-card">
+          <div class="skel skel-avatar"></div>
+          <div class="skel skel-title"></div>
+          <div class="skel skel-subtitle"></div>
+        </div>`).join('');
+    }
+
+    function buildAlphabet() {
+      document.getElementById('alpha-grid').innerHTML = LETTERS.map(l => {
+        const val = l === 'All' ? 'all' : l;
+        return `<button class="alpha-btn ${val==='all'?'active':''}" data-letter="${val}">${l}</button>`;
+      }).join('');
+    }
+
+    function bindFilters() {
+      document.getElementById('card-semua')?.addEventListener('click', () => {
+        if (activeJurusan === 'all') return;
+        activeJurusan = 'all'; activeLetter = 'all';
+        syncUI(); renderStudents(true);
+      });
+
+      document.querySelectorAll('.jurusan-card').forEach(card => {
+        card.addEventListener('click', () => {
+          const j = card.dataset.jurusan;
+          if (activeJurusan === j) return;
+          activeJurusan = j; activeLetter = 'all';
+          syncUI(); renderStudents(true);
+        });
+      });
+
+      document.getElementById('alpha-grid')?.addEventListener('click', e => {
+        const btn = e.target.closest('.alpha-btn');
+        if (!btn || activeJurusan !== 'all') return;
+        activeLetter = btn.dataset.letter;
+        syncUI(); renderStudents(false);
+      });
+
+      document.getElementById('reset-btn')?.addEventListener('click', doReset);
+    }
+
+    function doReset() {
+      activeJurusan = 'all'; activeLetter = 'all';
+      syncUI(); renderStudents(true);
+    }
+    window.doReset = doReset;
+
+    function activateJurusan(j) {
+      activeJurusan = j; activeLetter = 'all';
+      syncUI(); renderStudents(true);
+      document.querySelector('.students-block')?.scrollIntoView({ behavior:'smooth', block:'start' });
+    }
+    window.activateJurusan = activateJurusan;
+
+    function syncUI() {
+      const cardSemua = document.getElementById('card-semua');
+      const semuaActive = activeJurusan === 'all';
+      cardSemua.classList.toggle('active', semuaActive);
+      cardSemua.setAttribute('aria-pressed', String(semuaActive));
+
+      document.querySelectorAll('.jurusan-card').forEach(c => {
+        const isActive = c.dataset.jurusan === activeJurusan;
+        c.classList.toggle('active', isActive);
+        c.setAttribute('aria-pressed', String(isActive));
+      });
+
+      JURUSAN_LIST.forEach(j => {
+        const el = document.getElementById(`count-${j}`);
+        if (el) el.style.color = activeJurusan === j ? JC[j] : '';
+      });
+
+      const dot = document.getElementById('badge-dot');
+      if (dot) dot.style.background = activeJurusan !== 'all' ? JC[activeJurusan] : 'var(--border-gold)';
+
+      document.querySelectorAll('.alpha-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.letter === activeLetter);
+        btn.classList.toggle('dimmed', activeJurusan !== 'all');
+      });
+    }
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,410 @@
+[
+  {
+    "id": 57,
+    "name": "Eko Fernando Sibuea",
+    "jurusan": "APHP",
+    "wali_kelas": "Bu Gustri Sarah Br. Regar, S. P"
+  },
+  {
+    "id": 58,
+    "name": "Elpiya Sakila",
+    "jurusan": "APHP",
+    "wali_kelas": "Bu Gustri Sarah Br. Regar, S. P"
+  },
+  {
+    "id": 59,
+    "name": "Evan Hezhiel Sihite",
+    "jurusan": "APHP",
+    "wali_kelas": "Bu Gustri Sarah Br. Regar, S. P"
+  },
+  {
+    "id": 60,
+    "name": "Febrio Enjelina Hasugian",
+    "jurusan": "APHP",
+    "wali_kelas": "Bu Gustri Sarah Br. Regar, S. P"
+  },
+  {
+    "id": 61,
+    "name": "Julianda Rivaldo Harahap",
+    "jurusan": "APHP",
+    "wali_kelas": "Bu Gustri Sarah Br. Regar, S. P"
+  },
+  {
+    "id": 62,
+    "name": "Junaedi Aktar",
+    "jurusan": "APHP",
+    "wali_kelas": "Bu Gustri Sarah Br. Regar, S. P"
+  },
+  {
+    "id": 63,
+    "name": "Lusi Marlina",
+    "jurusan": "APHP",
+    "wali_kelas": "Bu Gustri Sarah Br. Regar, S. P"
+  },
+  {
+    "id": 64,
+    "name": "Mohammad Thamrin",
+    "jurusan": "APHP",
+    "wali_kelas": "Bu Gustri Sarah Br. Regar, S. P"
+  },
+  {
+    "id": 65,
+    "name": "Muhammad Dwi Andika",
+    "jurusan": "APHP",
+    "wali_kelas": "Bu Gustri Sarah Br. Regar, S. P"
+  },
+  {
+    "id": 66,
+    "name": "Rionaldo Sirait",
+    "jurusan": "APHP",
+    "wali_kelas": "Bu Gustri Sarah Br. Regar, S. P"
+  },
+  {
+    "id": 67,
+    "name": "Sedihati Zebua",
+    "jurusan": "APHP",
+    "wali_kelas": "Bu Gustri Sarah Br. Regar, S. P"
+  },
+  {
+    "id": 68,
+    "name": "Yustriyani Manae",
+    "jurusan": "APHP",
+    "wali_kelas": "Bu Gustri Sarah Br. Regar, S. P"
+  },
+  {
+    "id": 50,
+    "name": "Abdi Wibowo",
+    "jurusan": "ATP",
+    "wali_kelas": "Pak Sigit Oktavian, S. P"
+  },
+  {
+    "id": 43,
+    "name": "Adnan Nafis Fadilah",
+    "jurusan": "ATP",
+    "wali_kelas": "Pak Sigit Oktavian, S. P"
+  },
+  {
+    "id": 48,
+    "name": "Ahmad Faisal Alfadt",
+    "jurusan": "ATP",
+    "wali_kelas": "Pak Sigit Oktavian, S. P"
+  },
+  {
+    "id": 44,
+    "name": "Arif Rifaza",
+    "jurusan": "ATP",
+    "wali_kelas": "Pak Sigit Oktavian, S. P"
+  },
+  {
+    "id": 47,
+    "name": "Aril Syahputra",
+    "jurusan": "ATP",
+    "wali_kelas": "Pak Sigit Oktavian, S. P"
+  },
+  {
+    "id": 46,
+    "name": "Boby Niskar Giawa",
+    "jurusan": "ATP",
+    "wali_kelas": "Pak Sigit Oktavian, S. P"
+  },
+  {
+    "id": 49,
+    "name": "Daud Prasetya",
+    "jurusan": "ATP",
+    "wali_kelas": "Pak Sigit Oktavian, S. P"
+  },
+  {
+    "id": 51,
+    "name": "Dava Ridho Pradigda",
+    "jurusan": "ATP",
+    "wali_kelas": "Pak Sigit Oktavian, S. P"
+  },
+  {
+    "id": 45,
+    "name": "Diky Apria Rahmanda",
+    "jurusan": "ATP",
+    "wali_kelas": "Pak Sigit Oktavian, S. P"
+  },
+  {
+    "id": 52,
+    "name": "Leo Agung Renaldo H",
+    "jurusan": "ATP",
+    "wali_kelas": "Pak Sigit Oktavian, S. P"
+  },
+  {
+    "id": 53,
+    "name": "Marvel Saputra",
+    "jurusan": "ATP",
+    "wali_kelas": "Pak Sigit Oktavian, S. P"
+  },
+  {
+    "id": 54,
+    "name": "Miftahul Jannah",
+    "jurusan": "ATP",
+    "wali_kelas": "Pak Sigit Oktavian, S. P"
+  },
+  {
+    "id": 55,
+    "name": "Muhammad Reyhan Maulana",
+    "jurusan": "ATP",
+    "wali_kelas": "Pak Sigit Oktavian, S. P"
+  },
+  {
+    "id": 56,
+    "name": "Yericho Kristiantha Tarigan",
+    "jurusan": "ATP",
+    "wali_kelas": "Pak Sigit Oktavian, S. P"
+  },
+  {
+    "id": 24,
+    "name": "Ahmad Yosi Alpanda",
+    "jurusan": "MPLB",
+    "wali_kelas": "Bu Anggi Shintiya, S. Pd"
+  },
+  {
+    "id": 25,
+    "name": "Damai Hasima Br Hutauruk",
+    "jurusan": "MPLB",
+    "wali_kelas": "Bu Anggi Shintiya, S. Pd"
+  },
+  {
+    "id": 26,
+    "name": "Fatmawati",
+    "jurusan": "MPLB",
+    "wali_kelas": "Bu Anggi Shintiya, S. Pd"
+  },
+  {
+    "id": 27,
+    "name": "Fayi Matut Dianah",
+    "jurusan": "MPLB",
+    "wali_kelas": "Bu Anggi Shintiya, S. Pd"
+  },
+  {
+    "id": 28,
+    "name": "Fita Andini Putri",
+    "jurusan": "MPLB",
+    "wali_kelas": "Bu Anggi Shintiya, S. Pd"
+  },
+  {
+    "id": 29,
+    "name": "Fransisca Ramadhani",
+    "jurusan": "MPLB",
+    "wali_kelas": "Bu Anggi Shintiya, S. Pd"
+  },
+  {
+    "id": 30,
+    "name": "Intan Juwita Sari Br Hutahaean",
+    "jurusan": "MPLB",
+    "wali_kelas": "Bu Anggi Shintiya, S. Pd"
+  },
+  {
+    "id": 31,
+    "name": "Musfita Br Sihombing",
+    "jurusan": "MPLB",
+    "wali_kelas": "Bu Anggi Shintiya, S. Pd"
+  },
+  {
+    "id": 32,
+    "name": "Novi Indriyani",
+    "jurusan": "MPLB",
+    "wali_kelas": "Bu Anggi Shintiya, S. Pd"
+  },
+  {
+    "id": 33,
+    "name": "Rhadit Prayoga",
+    "jurusan": "MPLB",
+    "wali_kelas": "Bu Anggi Shintiya, S. Pd"
+  },
+  {
+    "id": 34,
+    "name": "Rhizka Noer",
+    "jurusan": "MPLB",
+    "wali_kelas": "Bu Anggi Shintiya, S. Pd"
+  },
+  {
+    "id": 35,
+    "name": "Sarifah Nil Hikmah",
+    "jurusan": "MPLB",
+    "wali_kelas": "Bu Anggi Shintiya, S. Pd"
+  },
+  {
+    "id": 36,
+    "name": "Saskia Febianti",
+    "jurusan": "MPLB",
+    "wali_kelas": "Bu Anggi Shintiya, S. Pd"
+  },
+  {
+    "id": 37,
+    "name": "Siska Halawa",
+    "jurusan": "MPLB",
+    "wali_kelas": "Bu Anggi Shintiya, S. Pd"
+  },
+  {
+    "id": 38,
+    "name": "Sofiani Murni Br Saragi",
+    "jurusan": "MPLB",
+    "wali_kelas": "Bu Anggi Shintiya, S. Pd"
+  },
+  {
+    "id": 39,
+    "name": "Suci Wulandari",
+    "jurusan": "MPLB",
+    "wali_kelas": "Bu Anggi Shintiya, S. Pd"
+  },
+  {
+    "id": 40,
+    "name": "Wahyu Andri Waluyo",
+    "jurusan": "MPLB",
+    "wali_kelas": "Bu Anggi Shintiya, S. Pd"
+  },
+  {
+    "id": 41,
+    "name": "Zahra Tussita",
+    "jurusan": "MPLB",
+    "wali_kelas": "Bu Anggi Shintiya, S. Pd"
+  },
+  {
+    "id": 42,
+    "name": "Zikrina Laila Istifaroh",
+    "jurusan": "MPLB",
+    "wali_kelas": "Bu Anggi Shintiya, S. Pd"
+  },
+  {
+    "id": 1,
+    "name": "Ahmad Fadhillah Al-Fikri",
+    "jurusan": "TSM",
+    "wali_kelas": "Bu Ulfa Herlinawati Lubis, S.H"
+  },
+  {
+    "id": 2,
+    "name": "Ahmad Zaki Rahmadani",
+    "jurusan": "TSM",
+    "wali_kelas": "Bu Ulfa Herlinawati Lubis, S.H"
+  },
+  {
+    "id": 3,
+    "name": "Anas Muchtar Sihabbuddin",
+    "jurusan": "TSM",
+    "wali_kelas": "Bu Ulfa Herlinawati Lubis, S.H"
+  },
+  {
+    "id": 4,
+    "name": "Andika Ahmad Efendi",
+    "jurusan": "TSM",
+    "wali_kelas": "Bu Ulfa Herlinawati Lubis, S.H"
+  },
+  {
+    "id": 5,
+    "name": "Arifin Ardiansyah",
+    "jurusan": "TSM",
+    "wali_kelas": "Bu Ulfa Herlinawati Lubis, S.H"
+  },
+  {
+    "id": 6,
+    "name": "Dava Tian Pratama",
+    "jurusan": "TSM",
+    "wali_kelas": "Bu Ulfa Herlinawati Lubis, S.H"
+  },
+  {
+    "id": 7,
+    "name": "Dhika",
+    "jurusan": "TSM",
+    "wali_kelas": "Bu Ulfa Herlinawati Lubis, S.H"
+  },
+  {
+    "id": 8,
+    "name": "Diaz Arfiansyah",
+    "jurusan": "TSM",
+    "wali_kelas": "Bu Ulfa Herlinawati Lubis, S.H"
+  },
+  {
+    "id": 9,
+    "name": "Edi Satria",
+    "jurusan": "TSM",
+    "wali_kelas": "Bu Ulfa Herlinawati Lubis, S.H"
+  },
+  {
+    "id": 10,
+    "name": "Endika Saputra Pakpahan",
+    "jurusan": "TSM",
+    "wali_kelas": "Bu Ulfa Herlinawati Lubis, S.H"
+  },
+  {
+    "id": 11,
+    "name": "Fauzan Alfiansyah",
+    "jurusan": "TSM",
+    "wali_kelas": "Bu Ulfa Herlinawati Lubis, S.H"
+  },
+  {
+    "id": 12,
+    "name": "Fauzan Hafit",
+    "jurusan": "TSM",
+    "wali_kelas": "Bu Ulfa Herlinawati Lubis, S.H"
+  },
+  {
+    "id": 13,
+    "name": "Firman Hidayatullah",
+    "jurusan": "TSM",
+    "wali_kelas": "Bu Ulfa Herlinawati Lubis, S.H"
+  },
+  {
+    "id": 14,
+    "name": "Lukman Hakim",
+    "jurusan": "TSM",
+    "wali_kelas": "Bu Ulfa Herlinawati Lubis, S.H"
+  },
+  {
+    "id": 15,
+    "name": "Muhammad Fajar Afriandi",
+    "jurusan": "TSM",
+    "wali_kelas": "Bu Ulfa Herlinawati Lubis, S.H"
+  },
+  {
+    "id": 16,
+    "name": "Muhammad Raihan Noverdi",
+    "jurusan": "TSM",
+    "wali_kelas": "Bu Ulfa Herlinawati Lubis, S.H"
+  },
+  {
+    "id": 17,
+    "name": "Panbers Julius Pasaribu",
+    "jurusan": "TSM",
+    "wali_kelas": "Bu Ulfa Herlinawati Lubis, S.H"
+  },
+  {
+    "id": 18,
+    "name": "Ridho Pratama Manik",
+    "jurusan": "TSM",
+    "wali_kelas": "Bu Ulfa Herlinawati Lubis, S.H"
+  },
+  {
+    "id": 19,
+    "name": "Rizqi Ageng Prayugo",
+    "jurusan": "TSM",
+    "wali_kelas": "Bu Ulfa Herlinawati Lubis, S.H"
+  },
+  {
+    "id": 20,
+    "name": "Satrio Muhardika",
+    "jurusan": "TSM",
+    "wali_kelas": "Bu Ulfa Herlinawati Lubis, S.H"
+  },
+  {
+    "id": 21,
+    "name": "Tedi Alfiansyah",
+    "jurusan": "TSM",
+    "wali_kelas": "Bu Ulfa Herlinawati Lubis, S.H"
+  },
+  {
+    "id": 22,
+    "name": "Tegu Sugiarto",
+    "jurusan": "TSM",
+    "wali_kelas": "Bu Ulfa Herlinawati Lubis, S.H"
+  },
+  {
+    "id": 23,
+    "name": "Wanda Saputra Natal Siregar",
+    "jurusan": "TSM",
+    "wali_kelas": "Bu Ulfa Herlinawati Lubis, S.H"
+  }
+]
