@@ -4,6 +4,8 @@
 
 Buku kenangan digital angkatan 2026 — SMK Negeri 3 Tapung Hulu.
 
+url : https://bukukenangan.vercel.app/
+
 ---
 
 ## Tentang
